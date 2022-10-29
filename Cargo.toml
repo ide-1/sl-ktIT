@@ -1,8 +1,13 @@
-[package]
-name = "sl-ktIT"
-version = "0.1.0"
-edition = "2021"
+[workspace]
+members = ["backend", "common", "frontend"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.dev]
+# Issue with const-generics
+incremental = false
 
-[dependencies]
+[profile.release]
+lto = true
+opt-level = 's'
+# Issue with const-generics
+incremental = false
+
